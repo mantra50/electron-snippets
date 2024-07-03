@@ -1,6 +1,6 @@
-import { Dispatch, useCallback, useEffect, useState } from 'react'
-import useCode from './useCode'
 import { DataType } from '@renderer/data'
+import { useStore } from '@renderer/store/useStore'
+import { Dispatch, useCallback, useEffect, useState } from 'react'
 
 export default (): {
   data: DataType[]
@@ -8,7 +8,7 @@ export default (): {
   selectCode: (id: number) => void
   setId: Dispatch<SetStateAction<number>>
 } => {
-  const { data, setData } = useCode()
+  const { data, setData, setSearch } = useStore((state) => state)
   const [id, setId] = useState(1)
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
@@ -39,6 +39,7 @@ export default (): {
     if (content) navigator.clipboard.writeText(content)
     window.api.hidenWindow()
     setData([])
+    setSearch('')
   }
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDown)

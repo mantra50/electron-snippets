@@ -9,6 +9,7 @@ export default function Search(): JSX.Element {
           value={search}
           onChange={handleSearch}
           type="text"
+          autoFocus
           className="w-full outline-none bg-slate-200 text-gray-800 text-2xl"
         />
       </section>
