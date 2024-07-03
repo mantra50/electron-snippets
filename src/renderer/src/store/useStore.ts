@@ -6,6 +6,8 @@ interface StoreProps {
   setData: (data: DataType[]) => void
   search: string
   setSearch: (search: string) => void
+  error: string
+  setError: (error: string) => void
 }
 
 export const useStore = create<StoreProps>((set) => ({
@@ -13,4 +15,6 @@ export const useStore = create<StoreProps>((set) => ({
   setData: (data): void => set({ data }),
   search: '',
   setSearch: (search): void => set({ search }),
+  error: '',
+  setError: (error): void => set({ error }),
 }))
