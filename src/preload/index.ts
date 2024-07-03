@@ -6,6 +6,9 @@ const api = {
   hidenWindow: (): void => {
     ipcRenderer.send('hidenWindow')
   },
+  shortCut: (type: 'search', shortCut: string): Promise<boolean> => {
+    return ipcRenderer.invoke('shortCut', type, shortCut)
+  },
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

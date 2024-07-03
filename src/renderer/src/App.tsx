@@ -1,13 +1,19 @@
 import Result from './components/Result'
 import Search from './components/Search'
-import { CodeProvider } from './context/CodeContext'
+import useShortCut from './hooks/useShortCut'
+// 使用 Zustand 代替 Context.Provider 进行全局状态管理
+// import { CodeProvider } from './context/CodeContext'
 
 function App(): JSX.Element {
+  const { register } = useShortCut()
+  register('search', 'Alt+Shift+;')
   return (
-    <CodeProvider>
+    <>
+      {/* <CodeProvider> */}
       <Search />
       <Result />
-    </CodeProvider>
+      {/* </CodeProvider> */}
+    </>
   )
 }
 
