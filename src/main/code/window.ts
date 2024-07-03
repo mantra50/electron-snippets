@@ -22,6 +22,7 @@ export function createWindow(): BrowserWindow {
       sandbox: false,
     },
   })
+
   if (is.dev) mainWindow.webContents.openDevTools()
   // mainWindow.setIgnoreMouseEvents(true)
   mainWindow.on('ready-to-show', () => {
