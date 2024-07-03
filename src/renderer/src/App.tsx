@@ -1,3 +1,4 @@
+import Error from './components/Error'
 import Result from './components/Result'
 import Search from './components/Search'
 import useShortCut from './hooks/useShortCut'
@@ -10,6 +11,7 @@ function App(): JSX.Element {
   return (
     <>
       {/* <CodeProvider> */}
+      <Error />
       <Search />
       <Result />
       {/* </CodeProvider> */}
