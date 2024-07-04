@@ -11,6 +11,9 @@ dependencies:
   '@electron-toolkit/utils':
     specifier: ^3.0.0
     version: 3.0.0(electron@31.1.0)
+  '@icon-park/react':
+    specifier: ^1.4.2
+    version: 1.4.2(react-dom@18.3.1)(react@18.3.1)
   electron-updater:
     specifier: ^6.1.7
     version: 6.2.1
@@ -731,6 +734,17 @@ packages:
     resolution: {integrity: sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==}
     deprecated: Use @eslint/object-schema instead
     dev: true
+
+  /@icon-park/react@1.4.2(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-+MtQLjNiRuia3fC/NfpSCTIy5KH5b+NkMB9zYd7p3R4aAIK61AjK0OSraaICJdkKooU9jpzk8m0fY4g9A3JqhQ==}
+    engines: {node: '>= 8.0.0', npm: '>= 5.0.0'}
+    peerDependencies:
+      react: '>=16.9'
+      react-dom: '>=16.9'
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    dev: false
 
   /@isaacs/cliui@8.0.2:
     resolution: {integrity: sha512-O8jcjabXaleOG9DQ0+ARXWZBTfnP4WNAqzuiJK7ll44AmxGKv/J2M4TPjxjY3znBCfvBXFzucm1twdyFybFqEA==}
@@ -3886,7 +3900,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.3.1
       scheduler: 0.23.2
-    dev: true
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -4131,7 +4144,6 @@ packages:
     resolution: {integrity: sha512-UOShsPwz7NrMUqhR6t0hWjFduvOzbtv7toDH1/hIrfRNIDBnnBWd0CwJTGvTpngVlmwGCdP9/Zl/tVrDqcuYzQ==}
     dependencies:
       loose-envify: 1.4.0
-    dev: true
 
   /semver-compare@1.0.0:
     resolution: {integrity: sha512-YM3/ITh2MJ5MtzaM429anh+x2jiLVjqILF4m4oyQB18W7Ggea7BfqdH/wGMK7dDiMghv/6WG7znWMwUDzJiXow==}
