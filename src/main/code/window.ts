@@ -10,7 +10,7 @@ export function createWindow(): BrowserWindow {
     height: 325,
     x: -500,
     y: 0,
-    // resizable: false,
+    resizable: false,
     show: false,
     frame: false,
     transparent: true,

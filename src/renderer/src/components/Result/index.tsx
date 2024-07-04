@@ -3,7 +3,7 @@ import './style.sass'
 export default function Result(): JSX.Element {
   const { data, id, selectCode, setId } = useCodeSelect()
   return (
-    <main className={`result ${data.length !== 0 ? 'py-2' : ''}`}>
+    <main className={` ${data.length !== 0 ? 'result' : ''}`}>
       {data.length !== 0 ? <hr className="border-gray-300 mb-1" /> : <></>}
       {data.map((item) => (
         <div

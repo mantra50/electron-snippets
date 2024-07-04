@@ -9,6 +9,9 @@ const api = {
   shortCut: (type: 'search', shortCut: string): Promise<boolean> => {
     return ipcRenderer.invoke('shortCut', type, shortCut)
   },
+  setIgnoreMouseEvents: (ignore: boolean, options?: { forward: boolean }): void => {
+    ipcRenderer.send('setIgnoreMouseEvents', ignore, options)
+  },
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

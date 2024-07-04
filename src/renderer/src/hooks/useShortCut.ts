@@ -7,6 +7,7 @@ export default (): {
   const register = async (type: 'search', shortCut: string = 'Alt+Shift+;'): void => {
     const isBind = await window.api.shortCut(type, shortCut)
     isBind || setError(`快捷键注册失败`)
+    // setError(`快捷键注册失败`)
   }
   return { register }
 }
