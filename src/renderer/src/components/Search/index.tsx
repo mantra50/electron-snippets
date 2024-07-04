@@ -1,16 +1,26 @@
+import { SettingThree } from '@icon-park/react'
 import useSearch from '@renderer/hooks/useSearch'
 
 export default function Search(): JSX.Element {
   const { handleSearch, search } = useSearch()
   return (
     <div className="bg-slate-50 w-screen  p-3 rounded-lg drag">
-      <section className="bg-slate-200 p-2 rounded-lg">
+      <section className="bg-slate-200 p-2 rounded-lg  flex items-center gap-1">
+        <SettingThree
+          theme="outline"
+          size="18"
+          fill="#333"
+          className="no-drag"
+          onClick={() => {
+            alert('切换配置页面')
+          }}
+        />
         <input
           value={search}
           onChange={handleSearch}
           type="text"
           autoFocus
-          className="w-full outline-none bg-slate-200 text-gray-800 text-2xl"
+          className="w-full outline-none bg-slate-200 text-gray-800 text-2xl align-middle"
         />
       </section>
     </div>
