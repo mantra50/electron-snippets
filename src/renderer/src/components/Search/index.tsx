@@ -1,10 +1,11 @@
 import { SettingThree } from '@icon-park/react'
 import useSearch from '@renderer/hooks/useSearch'
+import { Input } from 'antd'
 
 export default function Search(): JSX.Element {
   const { handleSearch, search } = useSearch()
   return (
-    <div className="bg-slate-50 w-screen  p-3 rounded-lg drag">
+    <div className="bg-slate-50 p-3 rounded-lg drag">
       <section className="bg-slate-200 p-2 rounded-lg  flex items-center gap-1">
         <SettingThree
           theme="outline"
@@ -15,13 +16,7 @@ export default function Search(): JSX.Element {
             alert('切换配置页面')
           }}
         />
-        <input
-          value={search}
-          onChange={handleSearch}
-          type="text"
-          autoFocus
-          className="w-full outline-none bg-slate-200 text-gray-800 text-2xl align-middle"
-        />
+        <Input value={search} onChange={handleSearch} autoFocus />
       </section>
     </div>
   )
