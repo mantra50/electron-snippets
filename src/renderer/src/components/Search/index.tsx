@@ -11,10 +11,8 @@ export default function Search(): JSX.Element {
           theme="outline"
           size="18"
           fill="#333"
-          className="no-drag"
-          onClick={() => {
-            alert('切换配置页面')
-          }}
+          className="no-drag cursor-pointer"
+          onClick={() => window.api.createConfigWindow()}
         />
         <Input value={search} onChange={handleSearch} autoFocus />
       </section>
