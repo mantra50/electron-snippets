@@ -1,5 +1,6 @@
 import { codes } from '@renderer/data'
 import { useStore } from '@renderer/store/useStore'
+import { ChangeEvent } from 'react'
 
 export default (): {
   search: string

@@ -1,11 +1,12 @@
 import { is } from '@electron-toolkit/utils'
-import { BrowserWindow } from 'electron'
+import { BrowserWindow, shell } from 'electron'
 import { join } from 'path'
 import icon from '../../../resources/icon.png?asset'
+import url from 'node:url'
 
 export function createWindow(): BrowserWindow {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  const win = new BrowserWindow({
     width: 800,
     height: 400,
     x: -800,
@@ -23,13 +24,13 @@ export function createWindow(): BrowserWindow {
     },
   })
 
-  if (is.dev) mainWindow.webContents.openDevTools()
-  // mainWindow.setIgnoreMouseEvents(true)
-  mainWindow.on('ready-to-show', () => {
-    mainWindow.show()
+  if (is.dev) win.webContents.openDevTools()
+  // win.setIgnoreMouseEvents(true)
+  win.on('ready-to-show', () => {
+    win.show()
   })
 
-  mainWindow.webContents.setWindowOpenHandler((details) => {
+  win.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url)
     return { action: 'deny' }
   })
@@ -37,9 +38,20 @@ export function createWindow(): BrowserWindow {
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
-    mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
+    win.loadURL(process.env['ELECTRON_RENDERER_URL'] + '/#config')
   } else {
-    mainWindow.loadFile(join(__dirname, '../../renderer/index.html'))
+    win.loadURL(
+      url.format({
+        //编译后的文件
+        pathname: join(__dirname, '../renderer/index.html'),
+        //协议
+        protocol: 'file',
+        //protocol 后面需要两个/
+        slashes: true,
+        //hash 的值
+        hash: 'config',
+      }),
+    )
   }
-  return mainWindow
+  return win
 }

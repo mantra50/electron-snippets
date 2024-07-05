@@ -1,14 +1,14 @@
 import Config from '@renderer/pages/Config'
 import Home from '@renderer/pages/Home'
-import { createBrowserRouter } from 'react-router-dom'
+import { createHashRouter } from 'react-router-dom'
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <Home />,
   },
   {
-    path: '/config',
+    path: 'config',
     element: <Config />,
   },
 ])

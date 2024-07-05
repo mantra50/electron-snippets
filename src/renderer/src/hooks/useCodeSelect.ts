@@ -1,6 +1,6 @@
 import { DataType } from '@renderer/data'
 import { useStore } from '@renderer/store/useStore'
-import { Dispatch, useCallback, useEffect, useState } from 'react'
+import { Dispatch, SetStateAction, useCallback, useEffect, useState } from 'react'
 
 export default (): {
   data: DataType[]

@@ -1,19 +1,16 @@
-import { useEffect, useRef } from 'react'
 import Error from '@renderer/components/Error'
 import Result from '@renderer/components/Result'
 import Search from '@renderer/components/Search'
-import useShortCut from '@renderer/hooks/useShortCut'
 import useIgnoreMouseEvents from '@renderer/hooks/useIgnoreMouseEvents'
+import { MutableRefObject, useEffect, useRef } from 'react'
 // 使用 Zustand 代替 Context.Provider 进行全局状态管理
 // import { CodeProvider } from '@RENDERERcontext/CodeContext'
 
 function Home(): JSX.Element {
-  const { register } = useShortCut()
-  register('search', 'Alt+Shift+;')
   const mainRef = useRef<HTMLDivElement | null>(null)
+  const { setIgnoreMouseEvents } = useIgnoreMouseEvents()
   useEffect(() => {
-    const { setIgnoreMouseEvents } = useIgnoreMouseEvents()
-    setIgnoreMouseEvents(mainRef)
+    setIgnoreMouseEvents(mainRef as MutableRefObject<HTMLDivElement>)
   }, [])
   return (
     <main className="relative p-1" ref={mainRef}>
