@@ -6,15 +6,17 @@ import url from 'node:url'
 
 export function createWindow(): BrowserWindow {
   // Create the browser window.
+  const width = 1250
+  const height = 750
   const win = new BrowserWindow({
-    width: 800,
-    height: 400,
-    x: -800,
-    y: 400,
+    width,
+    height,
+    x: -width - 10,
+    y: 100,
     // resizable: false,
     show: false,
-    // frame: false,
-    // transparent: true,
+    frame: true,
+    transparent: false,
     autoHideMenuBar: true,
     alwaysOnTop: true,
     ...(process.platform === 'linux' ? { icon } : {}),
