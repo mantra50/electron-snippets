@@ -12,8 +12,11 @@ const api = {
   setIgnoreMouseEvents: (ignore: boolean, options?: { forward: boolean }): void => {
     ipcRenderer.send('setIgnoreMouseEvents', ignore, options)
   },
-  createConfigWindow: (): void => {
-    ipcRenderer.send('createConfigWindow')
+  openConfigWindow: (): void => {
+    ipcRenderer.send('openConfigWindow')
+  },
+  sql: <T>(sql: string, type: SqlActionType): Promise<T> => {
+    return ipcRenderer.invoke('sql', sql, type)
   },
 }
 
