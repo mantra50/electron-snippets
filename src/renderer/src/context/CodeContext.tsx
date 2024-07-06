@@ -11,6 +11,6 @@ interface Props {
   children: ReactNode
 }
 export const CodeProvider = ({ children }: Props): ReactNode => {
-  const [data, setData] = useState<DataType>([])
+  const [data, setData] = useState<DataType[]>([])
   return <CodeContext.Provider value={{ data, setData }}>{children}</CodeContext.Provider>
 }

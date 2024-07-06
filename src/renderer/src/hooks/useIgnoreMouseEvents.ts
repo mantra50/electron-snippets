@@ -2,7 +2,7 @@
 import { MutableRefObject } from 'react'
 
 export default () => {
-  const setIgnoreMouseEvents = (el: MutableRefObject<HTMLElement>) => {
+  const setIgnoreMouseEvents = <T extends HTMLElement>(el: MutableRefObject<T>) => {
     el.current?.addEventListener('mouseover', () => {
       window.api.setIgnoreMouseEvents(false)
     })
