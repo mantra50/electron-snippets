@@ -1,0 +1,20 @@
+.content-list-page {
+  @apply h-screen;
+  display: grid;
+  grid-template: "list content" auto/250px auto;
+  .list {
+    grid-area: list;
+    @apply border-r bg-slate-50 text-sm overflow-y-auto;
+
+    a {
+      @apply p-2 truncate  cursor-pointer flex justify-center items-center gap-2 border-b mx-2 ;
+
+      &.active {
+        @apply bg-blue-600 text-white rounded-md mx-1;
+      }
+    }
+  }
+  .content {
+    grid-area: content;
+  }
+}
