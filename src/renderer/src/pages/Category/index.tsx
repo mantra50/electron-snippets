@@ -8,9 +8,13 @@ export default function Category(): JSX.Element {
   return (
     <main className="category-page">
       <div className="categories">
-        <NavLink to={`/config/category/contentList`} end className="font-bold">
+        <NavLink to={`/config/category/contentList`} end className="font-bold mt-1">
           <AllApplication theme="outline" size="16" strokeWidth={3} />
           <span className="truncate">所有片段</span>
+        </NavLink>
+        <NavLink to={`/config/category/contentList/0`} className="font-bold">
+          <AllApplication theme="outline" size="16" strokeWidth={3} />
+          <span className="truncate">未分类</span>
         </NavLink>
         {categories.map((category) => (
           <NavLink

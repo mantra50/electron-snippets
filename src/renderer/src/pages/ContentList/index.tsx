@@ -22,6 +22,7 @@ export default function ContentList(): JSX.Element {
             <Add
               theme="outline"
               size="18"
+              strokeWidth={2}
               onClick={() => {
                 submit({ action: 'add' }, { method: 'POST' })
               }}
