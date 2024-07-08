@@ -6,8 +6,8 @@ import url from 'node:url'
 
 export function createWindow(): BrowserWindow {
   // Create the browser window.
-  const width = 1250
-  const height = 750
+  const width = 950
+  const height = 550
   const win = new BrowserWindow({
     width,
     height,
