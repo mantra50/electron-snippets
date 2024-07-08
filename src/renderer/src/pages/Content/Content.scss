@@ -1,9 +1,11 @@
 .content-page {
-  @apply h-screen p-2 overflow-y-auto;
-  h1 {
-    @apply text-2xl font-bold text-center;
+  @apply h-screen ;
+  display: grid;
+  grid-template-rows: 35px 1fr;
+  input {
+    @apply text-xl font-bold p-3 outline-none  text-slate-800;
   }
-  .content-body {
-    @apply  leading-relaxed p-4;
+  textarea {
+    @apply leading-relaxed max-h-full p-3 outline-none border-y mt-2  text-slate-800;
   }
 }

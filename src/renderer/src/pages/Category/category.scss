@@ -11,8 +11,7 @@
     @apply border-r bg-slate-100 text-sm overflow-y-auto scroll-smooth;
 
     a {
-      @apply p-2 truncate block;
-
+      @apply flex  items-center p-2 gap-2;
       &.active {
         @apply bg-blue-600 text-white rounded-md mx-1;
       }
