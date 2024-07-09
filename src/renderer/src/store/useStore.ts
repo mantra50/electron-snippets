@@ -8,6 +8,8 @@ interface StoreProps {
   setSearch: (search: string) => void
   error: string
   setError: (error: string) => void
+  CategoryId: number
+  setCategoryId: (CategoryId: number) => void
 }
 
 export const useStore = create<StoreProps>((set) => ({
@@ -17,4 +19,6 @@ export const useStore = create<StoreProps>((set) => ({
   setSearch: (search): void => set({ search }),
   error: '',
   setError: (error): void => set({ error }),
+  CategoryId: 0,
+  setCategoryId: (CategoryId): void => set({ CategoryId }),
 }))

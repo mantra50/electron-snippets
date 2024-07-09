@@ -17,6 +17,6 @@ export const update = (sql: string, params: Record<string, string | number>) => 
   return db.prepare(sql).run(params).changes
 }
 
-export const remove = (sql: string) => {
-  return db.prepare(sql).run().changes
+export const remove = (sql: string, params = {}) => {
+  return db.prepare(sql).run(params).changes
 }

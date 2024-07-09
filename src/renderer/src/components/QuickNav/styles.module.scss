@@ -1,0 +1,17 @@
+@mixin commonLink {
+  @apply flex items-center p-2 gap-2 mx-1 font-bold rounded-md;
+}
+
+.QuickNav {
+  @apply mb-2 border-b pb-2;
+}
+
+.link {
+  @include commonLink();
+  @apply hover:bg-gray-200;
+}
+
+.active {
+  @include commonLink();
+  @apply bg-blue-600 text-white;
+}

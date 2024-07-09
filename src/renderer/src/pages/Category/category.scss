@@ -9,17 +9,10 @@
   .categories {
     grid-area: categorise;
     @apply border-r bg-slate-100 text-sm overflow-y-auto scroll-smooth;
-
-    a {
-      @apply flex  items-center p-2 gap-2;
-      &.active {
-        @apply bg-blue-600 text-white rounded-md mx-1;
-      }
-    }
   }
+
   .content {
     grid-area: content;
-    @apply border-r;
   }
   .nav {
     grid-area: nav;
