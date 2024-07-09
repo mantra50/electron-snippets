@@ -1,5 +1,5 @@
 import useCodeSelect from '@renderer/hooks/useCodeSelect'
-import './style.sass'
+import './style.scss'
 export default function Result(): JSX.Element {
   const { data, id, selectCode, setId } = useCodeSelect()
   return (

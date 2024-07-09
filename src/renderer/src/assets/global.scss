@@ -1,0 +1,29 @@
+@import "./scrollbar.scss";
+
+body {
+  @apply h-screen;
+  background-color: #00000000;
+}
+
+* {
+  opacity: 0.995;
+}
+
+.drag {
+  -webkit-app-region: drag;
+}
+
+.no-drag,
+textarea,
+input,
+button,
+option {
+  -webkit-app-region: no-drag;
+}
+
+.contextMenu {
+  @apply rounded-md;
+  button {
+    @apply bg-red-500 hover:bg-red-400 text-white px-2 py-1;
+  }
+}

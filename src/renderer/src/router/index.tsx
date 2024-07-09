@@ -1,4 +1,5 @@
 import Category from '@renderer/pages/Category'
+import CategoryAction from '@renderer/pages/Category/CategoryAction'
 import CategoryLoader from '@renderer/pages/Category/CategoryLoader'
 import Config from '@renderer/pages/Config'
 import ContentAction from '@renderer/pages/Content/ContentAction'
@@ -24,7 +25,12 @@ const router = createHashRouter([
         path: 'category',
         element: <Category />,
         loader: CategoryLoader,
+        action: CategoryAction,
         children: [
+          {
+            index: true,
+            element: <Wellcom />,
+          },
           {
             path: 'contentList/:cid?',
             loader: ContentListLoader,

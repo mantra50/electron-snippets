@@ -1,0 +1,20 @@
+$height: 35px;
+@mixin commonLink {
+  @apply flex items-center p-2 gap-2 mx-1 my-1 rounded-md;
+  -webkit-user-drag: none;
+  height: $height;
+}
+
+.link {
+  @include commonLink();
+  @apply hover:bg-gray-200;
+}
+
+.active {
+  @include commonLink();
+  @apply bg-blue-600 text-white;
+}
+
+.input {
+  @apply w-full outline-none rounded-sm text-black;
+}

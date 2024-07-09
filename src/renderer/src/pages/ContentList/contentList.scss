@@ -5,14 +5,6 @@
   .list {
     grid-area: list;
     @apply border-r text-xs overflow-y-auto;
-
-    a {
-      @apply p-2 truncate  cursor-pointer flex justify-between items-center gap-2 border-b mx-2 my-1;
-
-      &.active {
-        @apply bg-blue-600 text-white rounded-md ;
-      }
-    }
   }
   .content {
     grid-area: content;
