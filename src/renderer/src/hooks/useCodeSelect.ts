@@ -1,9 +1,8 @@
-import { DataType } from '@renderer/data'
 import { useStore } from '@renderer/store/useStore'
 import { Dispatch, SetStateAction, useCallback, useEffect, useState } from 'react'
 
 export default (): {
-  data: DataType[]
+  data: ContentType[]
   id: number
   selectCode: (id: number) => void
   setId: Dispatch<SetStateAction<number>>
@@ -12,15 +11,16 @@ export default (): {
   const [id, setId] = useState(1)
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {
-      if (data.length === 0) return
       switch (e.code) {
         case 'ArrowUp':
+          if (data.length === 0) return
           setId((id) => {
             const index = data.findIndex((item) => item.id === id)
             return data[index - 1]?.id || data[data.length - 1].id
           })
           break
         case 'ArrowDown':
+          if (data.length === 0) return
           setId((id) => {
             const index = data.findIndex((item) => item.id === id)
             return data[index + 1]?.id || data[0].id
@@ -30,6 +30,10 @@ export default (): {
           selectCode(id)
           break
         }
+        case 'Escape': {
+          window.api.closeWindow('search')
+          break
+        }
       }
     },
     [data, id],
@@ -37,7 +41,7 @@ export default (): {
   function selectCode(id: number): void {
     const content = data.find((item) => item.id == id)?.content
     if (content) navigator.clipboard.writeText(content)
-    window.api.hidenWindow()
+    window.api.closeWindow('search')
     setData([])
     setSearch('')
   }

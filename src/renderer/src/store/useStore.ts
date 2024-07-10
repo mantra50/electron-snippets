@@ -1,9 +1,11 @@
-import { DataType } from '@renderer/data'
-import { create } from 'zustand'
+import { create } from 'zustand';
+import { createJSONStorage, persist } from 'zustand/middleware';
 
 interface StoreProps {
-  data: DataType[]
-  setData: (data: DataType[]) => void
+  config: ConfigDataType,
+  setConfig: (config: ConfigDataType) => void
+  data: ContentType[]
+  setData: (data: ContentType[]) => void
   search: string
   setSearch: (search: string) => void
   error: string
@@ -12,13 +14,24 @@ interface StoreProps {
   setCategoryId: (CategoryId: number) => void
 }
 
-export const useStore = create<StoreProps>((set) => ({
-  data: [],
-  setData: (data): void => set({ data }),
-  search: '',
-  setSearch: (search): void => set({ search }),
-  error: '',
-  setError: (error): void => set({ error }),
-  CategoryId: 0,
-  setCategoryId: (CategoryId): void => set({ CategoryId }),
-}))
+export const useStore = create(persist<StoreProps>(
+  (set) => ({
+    data: [],
+    setData: (data): void => set({ data }),
+    search: '',
+    setSearch: (search): void => set({ search }),
+    error: '',
+    setError: (error): void => set({ error }),
+    CategoryId: 0,
+    setCategoryId: (CategoryId): void => set({ CategoryId }),
+    config: {
+      shortCut: '',
+      databaseDirectory: ''
+    },
+    setConfig: (config): void => set({ config }),
+  }),
+  {
+    name: 'happysnippets-storage',
+    storage: createJSONStorage(() => localStorage), // (optional) by default, 'localStorage' is used
+  },
+),)

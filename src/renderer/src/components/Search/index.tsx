@@ -12,7 +12,7 @@ export default function Search(): JSX.Element {
           size="18"
           fill="#333"
           className="no-drag cursor-pointer"
-          onClick={() => window.api.openConfigWindow()}
+          onClick={() => window.api.openWindow('config')}
         />
         <Input value={search} onChange={handleSearch} autoFocus />
       </section>

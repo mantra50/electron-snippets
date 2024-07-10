@@ -1,4 +1,3 @@
-import { codes } from '@renderer/data'
 import { useStore } from '@renderer/store/useStore'
 import { ChangeEvent } from 'react'
 
@@ -7,15 +6,18 @@ export default (): {
   handleSearch: (e: ChangeEvent<HTMLInputElement>) => void
 } => {
   const { setData, search, setSearch } = useStore((state) => state)
-  const handleSearch = (e: ChangeEvent<HTMLInputElement>): void => {
+  const handleSearch = async (e: ChangeEvent<HTMLInputElement>): Promise<void> => {
     setSearch(e.target.value)
-    setData(
-      codes
-        .filter((code) => {
-          return code.content.toLowerCase().includes(e.target.value.toLowerCase() || '@@@@@')
-        })
-        .splice(0, 7),
-    )
+    if (e.target.value === '') {
+      return setData([])
+    }
+    const data = await window.api.sql(`select * from contents where title like @title limit 7 `
+      , 'findAll'
+      , {
+        title: `%${e.target.value.toLowerCase()}%`
+      })
+
+    setData(data as ContentType[])
   }
   return { search, handleSearch }
 }

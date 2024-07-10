@@ -1,5 +1,5 @@
 import { ListAdd, SettingConfig } from '@icon-park/react'
-import { useSubmit } from 'react-router-dom'
+import { NavLink, useSubmit } from 'react-router-dom'
 
 export const FooterMenu = (): JSX.Element => {
   const submit = useSubmit()
@@ -14,7 +14,9 @@ export const FooterMenu = (): JSX.Element => {
           submit(null, { method: 'POST' })
         }}
       />
-      <SettingConfig theme="outline" size="24" strokeWidth={2} className="cursor-pointer" />
+      <NavLink to="/config">
+        <SettingConfig theme="outline" size="24" strokeWidth={2} className="cursor-pointer" />
+      </NavLink>
     </div>
   )
 }
