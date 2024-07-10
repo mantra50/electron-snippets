@@ -3,8 +3,8 @@ import { electronAPI } from '@electron-toolkit/preload'
 
 // Custom APIs for renderer
 const api = {
-  shortCut: (type: 'search', shortCut: string): Promise<boolean> => {
-    return ipcRenderer.invoke('shortCut', type, shortCut)
+  shortCut: (shortCut: string): Promise<boolean> => {
+    return ipcRenderer.invoke('shortCut', shortCut)
   },
   setIgnoreMouseEvents: (ignore: boolean, options?: { forward: boolean }): void => {
     ipcRenderer.send('setIgnoreMouseEvents', ignore, options)
@@ -18,6 +18,16 @@ const api = {
   closeWindow: (name: windowNameType): void => {
     ipcRenderer.send('closeWindow', name)
   },
+  selectDabaseDirectory: (): Promise<string> => {
+    return ipcRenderer.invoke('selectDabaseDirectory')
+  },
+  setDatabaseDirectory: (path: string): void => {
+    console.log('setDatabaseDirectory', path)
+    ipcRenderer.send('setDatabaseDirectory', path)
+  },
+  initDabase: () => {
+    ipcRenderer.send('initDabase')
+  }
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

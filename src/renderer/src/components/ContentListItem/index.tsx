@@ -22,7 +22,7 @@ export const ContentListItem = ({ content }: Props): JSX.Element => {
         [
           {
             key: 'remove',
-            icon: <Delete theme="outline" size="18" strokeLinecap={2} />,
+            icon: <Delete theme="outline" size="18" strokeWidth={2} />,
             title: '删除片段',
             onClick: (): void => {
               submit({ id: content.id }, { method: 'DELETE' })

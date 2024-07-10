@@ -7,6 +7,7 @@ import url from 'node:url'
 export interface OptionsType extends Partial<BrowserWindowConstructorOptions> {
   hash?: string
   openDevTools?: boolean
+  isInitShow?: boolean
 }
 
 export function createWindow(options: OptionsType): BrowserWindow {
@@ -24,7 +25,6 @@ export function createWindow(options: OptionsType): BrowserWindow {
         transparent: true,
         autoHideMenuBar: true,
         alwaysOnTop: true,
-        // backgroundColor: '#000000',
         ...(process.platform === 'linux' ? { icon } : {}),
         webPreferences: {
           preload: join(__dirname, '../preload/index.js'),
@@ -36,9 +36,8 @@ export function createWindow(options: OptionsType): BrowserWindow {
   )
 
   if (is.dev && options.openDevTools) win.webContents.openDevTools()
-  // win.setIgnoreMouseEvents(true)
   win.on('ready-to-show', () => {
-    win.show()
+    options.isInitShow && win.show()
   })
 
   win.webContents.setWindowOpenHandler((details) => {

@@ -6,11 +6,15 @@ export const window = {
     id: 0,
     options: {
       hash: '',
+      openDevTools: true,
+      isInitShow: true,
     },
   },
   config: {
     id: 0,
     options: {
+      isInitShow: false,
+      openDevTools: true,
       width: 950,
       height: 550,
       x: -960,
@@ -33,9 +37,12 @@ export const getWindowByName = (name: windowNameType): BrowserWindow => {
 }
 
 export const getWindowByEvent = (event: IpcMainEvent | IpcMainInvokeEvent): BrowserWindow => {
-  return BrowserWindow.fromWebContents(event.sender)
+  return BrowserWindow.fromWebContents(event.sender)!
 }
 
+
+
 app.whenReady().then(() => {
+  // getWindowByName('config')
   getWindowByName('search')
 })

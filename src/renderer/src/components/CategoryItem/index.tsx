@@ -33,7 +33,7 @@ export const CategoryItem = ({ category }: Props): JSX.Element => {
             onKeyDown={(e) => {
               if (e.key === 'Enter') {
                 fetcher.submit(
-                  { category_id: category.id, name: e.target.value || '未命名' },
+                  { category_id: category.id, name: e.currentTarget.value || '未命名' },
                   { method: 'PUT' },
                 )
                 setCategoryId(0)

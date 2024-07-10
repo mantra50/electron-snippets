@@ -1,7 +1,10 @@
 import { DataType } from '@renderer/data'
 import { create } from 'zustand'
+import { createJSONStorage, persist } from 'zustand/middleware';
 
 interface StoreProps {
+  config: ConfigDataType,
+  setConfig: (config: ConfigDataType) => void
   data: DataType[]
   setData: (data: DataType[]) => void
   search: string
@@ -12,13 +15,24 @@ interface StoreProps {
   setCategoryId: (CategoryId: number) => void
 }
 
-export const useStore = create<StoreProps>((set) => ({
-  data: [],
-  setData: (data): void => set({ data }),
-  search: '',
-  setSearch: (search): void => set({ search }),
-  error: '',
-  setError: (error): void => set({ error }),
-  CategoryId: 0,
-  setCategoryId: (CategoryId): void => set({ CategoryId }),
-}))
+export const useStore = create(persist<StoreProps>(
+  (set) => ({
+    data: [],
+    setData: (data): void => set({ data }),
+    search: '',
+    setSearch: (search): void => set({ search }),
+    error: '',
+    setError: (error): void => set({ error }),
+    CategoryId: 0,
+    setCategoryId: (CategoryId): void => set({ CategoryId }),
+    config: {
+      shortCut: '',
+      databaseDirectory: ''
+    },
+    setConfig: (config): void => set({ config }),
+  }),
+  {
+    name: 'happysnippets-storage',
+    storage: createJSONStorage(() => localStorage), // (optional) by default, 'localStorage' is used
+  },
+),)

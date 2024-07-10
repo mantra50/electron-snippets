@@ -37,7 +37,7 @@ export default (): {
   function selectCode(id: number): void {
     const content = data.find((item) => item.id == id)?.content
     if (content) navigator.clipboard.writeText(content)
-    window.api.hidenWindow()
+    window.api.closeWindow('search')
     setData([])
     setSearch('')
   }

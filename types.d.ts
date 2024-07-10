@@ -14,4 +14,14 @@ type ContentType = {
   category_id: number
 }
 
+type ConfigType = {
+  id: number
+  content: string
+}
+
+type ConfigDataType = {
+  shortCut: string
+  databaseDirectory: string
+}
+
 type windowNameType = 'search' | 'config'

@@ -15,7 +15,7 @@ export default (category: CategoryType) => {
       [
         {
           key: 'remove',
-          icon: <Delete theme="outline" size="18" strokeLinecap={2} />,
+          icon: <Delete theme="outline" size="18" strokeWidth={2} />,
           title: '删除片段',
           onClick: (): void => {
             submit({ id: category.id }, { method: 'DELETE' })
@@ -42,7 +42,7 @@ export default (category: CategoryType) => {
       const el = e.currentTarget as HTMLDivElement
       el.classList.remove(styles.draging)
       const id = e.dataTransfer.getData('id')
-      moveContent(id, category.id)
+      moveContent(Number(id), category.id)
     },
   }
   return { contextMenu, dragHandle }
