@@ -36,6 +36,10 @@ const router = createHashRouter([
         action: CategoryAction,
         children: [
           {
+            index: true,
+            element: <Wellcom />,
+          },
+          {
             path: 'contentList/:cid?',
             loader: ContentListLoader,
             action: ContentListAction,

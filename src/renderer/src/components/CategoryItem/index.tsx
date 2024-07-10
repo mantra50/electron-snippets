@@ -21,8 +21,8 @@ export const CategoryItem = ({ category }: Props): JSX.Element => {
         to={`/config/category/contentList/${category.id}`}
         key={category.id}
         className={({ isActive }) => (isActive ? styles.active : styles.link)}
-        {...dragHandle}
         onContextMenu={contextMenu()}
+        {...dragHandle}
       >
         <BookmarkOne theme="outline" size="16" strokeWidth={3} />
         {CategoryId === category.id ? (
