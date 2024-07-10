@@ -15,7 +15,7 @@ export default function Result(): JSX.Element {
             setId(item.id)
           }}
         >
-          {item.content}
+          {item.title}
         </div>
       ))}
     </main>

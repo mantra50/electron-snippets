@@ -17,14 +17,12 @@ export function createWindow(options: OptionsType): BrowserWindow {
       {
         width: 500,
         height: 325,
-        x: -500,
-        y: 0,
         resizable: false,
         show: false,
         frame: false,
         transparent: true,
         autoHideMenuBar: true,
-        alwaysOnTop: true,
+        // alwaysOnTop: true,
         ...(process.platform === 'linux' ? { icon } : {}),
         webPreferences: {
           preload: join(__dirname, '../preload/index.js'),
@@ -59,7 +57,7 @@ export function createWindow(options: OptionsType): BrowserWindow {
         //protocol 后面需要两个/
         slashes: true,
         //hash 的值
-        hash: 'config/category/contentList',
+        hash: options.hash?.substring(1),
       }),
     )
   }

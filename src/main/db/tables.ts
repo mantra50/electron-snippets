@@ -39,7 +39,7 @@ function initData(): void {
     const name = Random.title(4, 8)
     db().exec(`
   INSERT INTO categories (name, created_at) VALUES ('${name}', datetime());
-`)
+  `)
     for (let j = 0; j < 20; j++) {
       const title = Random.title(5, 10)
       const content = Random.paragraph(4, 10)

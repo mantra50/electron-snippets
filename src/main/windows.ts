@@ -6,7 +6,7 @@ export const window = {
     id: 0,
     options: {
       hash: '',
-      openDevTools: true,
+      // openDevTools: true,
       isInitShow: true,
     },
   },
@@ -14,11 +14,9 @@ export const window = {
     id: 0,
     options: {
       isInitShow: false,
-      openDevTools: true,
+      // openDevTools: true,
       width: 950,
       height: 550,
-      x: -960,
-      y: 100,
       resizable: true,
       frame: true,
       transparent: false,
@@ -32,6 +30,9 @@ export const getWindowByName = (name: windowNameType): BrowserWindow => {
   if (!win) {
     win = createWindow(window[name].options)
     window[name].id = win.id
+  }
+  if (name == 'search') {
+    win.setSkipTaskbar(true)
   }
   return win
 }

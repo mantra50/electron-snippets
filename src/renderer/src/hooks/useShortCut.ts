@@ -1,4 +1,3 @@
-import { useStore } from '@renderer/store/useStore'
 
 export default (): void => {
   // const setError = useStore((state) => state.setError)

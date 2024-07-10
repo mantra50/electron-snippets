@@ -22,7 +22,6 @@ const api = {
     return ipcRenderer.invoke('selectDabaseDirectory')
   },
   setDatabaseDirectory: (path: string): void => {
-    console.log('setDatabaseDirectory', path)
     ipcRenderer.send('setDatabaseDirectory', path)
   },
   initDabase: () => {

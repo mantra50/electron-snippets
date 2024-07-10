@@ -11,8 +11,6 @@ import ContentList from '@renderer/pages/ContentList'
 import ContentListAction from '@renderer/pages/ContentList/ContentListAction'
 import ContentListLoader from '@renderer/pages/ContentList/ContentListLoader'
 import { Setting } from '@renderer/pages/Setting'
-import SettingAction from '@renderer/pages/Setting/SettingAction'
-import SettingLoader from '@renderer/pages/Setting/SettingLoader'
 import Wellcom from '@renderer/pages/Wellcom/inde'
 import { createHashRouter } from 'react-router-dom'
 

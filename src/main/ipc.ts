@@ -22,7 +22,7 @@ ipcMain.handle('selectDabaseDirectory', async () => {
     title: '选择片段文件存放目录',
     properties: ['openDirectory', 'createDirectory']
   })
-  return res.canceled ? '' : res.filePaths[0]
+  return res.canceled ? config.databaseDirectory : res.filePaths[0]
 })
 
 ipcMain.on('setDatabaseDirectory', (_event: IpcMainEvent, path: string) => {
