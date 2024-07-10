@@ -1,7 +1,10 @@
 import { electronApp, optimizer } from '@electron-toolkit/utils'
 import { app, ipcMain } from 'electron'
-import './code'
 import './db'
+import './windows'
+import './ipc'
+import './shortCut'
+// import './code'
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

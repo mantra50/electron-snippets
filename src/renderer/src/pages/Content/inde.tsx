@@ -1,5 +1,5 @@
 import { Form, useLoaderData, useSubmit } from 'react-router-dom'
-import './Content.scss'
+import './content.scss'
 
 export default function Content(): JSX.Element {
   const submit = useSubmit()

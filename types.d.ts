@@ -13,3 +13,5 @@ type ContentType = {
   created_at: string
   category_id: number
 }
+
+type windowNameType = 'search' | 'config'

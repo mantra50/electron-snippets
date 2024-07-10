@@ -11,7 +11,7 @@ export default (category: CategoryType) => {
   const { moveContent } = useContent()
   const submit = useSubmit()
   const contextMenu = () => {
-    showContextMenu(
+    return showContextMenu(
       [
         {
           key: 'remove',
@@ -38,6 +38,7 @@ export default (category: CategoryType) => {
       el.classList.remove(styles.draging)
     },
     onDrop: (e: DragEvent) => {
+      e.dataTransfer.dropEffect = 'move'
       const el = e.currentTarget as HTMLDivElement
       el.classList.remove(styles.draging)
       const id = e.dataTransfer.getData('id')
